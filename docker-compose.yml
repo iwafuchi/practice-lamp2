@@ -5,15 +5,15 @@ services:
     build:
       context: ./
       dockerfile: ./docker/mysql/Dockerfile
-    container_name: lamp-based-mysql
+    container_name: practice-lamp2-mysql
     volumes:
-      - example_lamp_data_store:/var/lib/mysql
+      - practice-lamp2_data_store:/var/lib/mysql
 
   phpmyadmin:
     depends_on:
       - mysql
     image: phpmyadmin/phpmyadmin
-    container_name: lamp-based-phpmyadmin
+    container_name: practice-lamp2-phpmyadmin
     environment:
       PMA_HOST: mysql
     ports:
@@ -23,7 +23,7 @@ services:
     build:
         context: ./
         dockerfile: ./docker/php-apache/Dockerfile
-    container_name: lamp-based-php-apache
+    container_name: practice-lamp2-php-apache
     volumes:
       - ./src:/var/www/html
       - ./docker/php-apache/php/php.ini:/usr/local/etc/php/php.ini
@@ -35,4 +35,4 @@ services:
       - mysql
 
 volumes:
-    example_lamp_data_store: {}
+    practice-lamp2_data_store: {}
