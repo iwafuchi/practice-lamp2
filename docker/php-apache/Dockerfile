@@ -17,4 +17,6 @@ RUN apt-get update && \
     cp /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/ && \
     mkdir /var/lib/php/ && \
     mkdir /var/lib/php/session && \
-    chown -R www-data:www-data /var/lib/php/session
+    chown -R www-data:www-data /var/lib/php/session && \
+    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs
