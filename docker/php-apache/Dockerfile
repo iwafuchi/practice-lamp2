@@ -20,3 +20,5 @@ RUN apt-get update && \
     chown -R www-data:www-data /var/lib/php/session && \
     curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs
+
+WORKDIR /var/www/html/task_test
