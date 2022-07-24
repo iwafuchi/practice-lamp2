@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Route::get('tests/test', [TestController::class, 'index']);
 
-// Route::get('tests/test', 'App\Http\Controllers\TestController@index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
