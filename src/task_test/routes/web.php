@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('tests/test', [TestController::class, 'index']);
+
+Route::get('/contacts', [ContactFormController::class, 'index', 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
