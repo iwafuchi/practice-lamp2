@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::get('tests/test', [TestController::class, 'index']);
 
-Route::get('/contacts', [ContactFormController::class, 'index', 'show']);
+Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function () {
+    Route::get('index', [ContactFormController::class, 'index'])->name(('contact.index'));
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
